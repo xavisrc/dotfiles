@@ -1,0 +1,95 @@
+- name: Home
+  # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+  # hide-desktop-navigation: true
+  columns:
+    - size: small
+      widgets:
+        - type: calendar
+          first-day-of-week: monday
+
+        - type: rss
+          limit: 10
+          collapse-after: 3
+          cache: 12h
+          feeds:
+            - url: https://selfh.st/rss/
+              title: selfh.st
+            - url: https://feeds.macrumors.com/MacRumors-All
+              title: MacRumors
+            - url: https://feeds.feedburner.com/bandaanchaeu
+              title: BandaAncha
+
+        - type: twitch-channels
+          channels:
+            - gerardromero
+            - japanjordi
+            - miquelserrano
+            - jabiertzo
+            - christitustech
+
+    - size: full
+      widgets:
+        - type: rss
+          title: News
+          feeds:
+            - url: https://www.elperiodico.com/es/cds/rss/?id=board.xml
+              title: El Periodico
+            - url: https://www.lavanguardia.com/rss/home.xml
+              title: La Vanguardia
+
+        - type: videos
+          channels:
+            - UCg6gPGh8HU2U01vaFCAsvmQ # Chris Titus Tech
+            - UCUdDLzkv6LbTIZjhxZoQqvw # No Solo Hacking
+            - UC_qspxIbv_iMtfg7rJfbyOg # Japatonic
+            - UCXYvYt_HwltaZqZvHuKG3Ug # CompuLab
+            - UCpMMq9d0oDAuvC2D_G8tpfQ # QNAP Es
+            - UCv6J_jJa8GJqFwQNgNrMuww # ServeTheHome
+            - UC8LeXCWOalN8SxlrPcG-PaQ # midudev
+
+
+        - type: group
+          widgets:
+            - type: reddit
+              subreddit: selfhosted
+              show-thumbnails: true
+            - type: reddit
+              subreddit: unixporn
+              show-thumbnails: true
+
+    - size: small
+      widgets:
+        - type: weather
+          location: Barcelona, Spain
+          units: metric # alternatively "imperial"
+          hour-format: 24h # alternatively "24h"
+          # Optionally hide the location from being displayed in the widget
+          # hide-location: true
+
+        - type: markets
+          markets:
+            - symbol: ^IBEX
+              name: IBEX 35
+            - symbol: SPY
+              name: S&P 500
+            - symbol: EURUSD=X
+              name: EUR/USD
+            - symbol: BTC-USD
+              name: Bitcoin
+            - symbol: NVDA
+              name: NVIDIA
+            - symbol: AAPL
+              name: Apple
+            - symbol: MSFT
+              name: Microsoft
+
+        - type: releases
+          cache: 1d
+          # Without authentication the Github API allows for up to 60 requests per hour. You can create a
+          # read-only token from your Github account settings and use it here to increase the limit.
+          # token: ...
+          repositories:
+            - glanceapp/glance
+            - community-scripts/ProxmoxVE
+            - ViRb3/wgcf
+            - massgravel/Microsoft-Activation-Scripts
